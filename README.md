@@ -19,7 +19,7 @@ This project is a React application that uses the [REST Countries API](https://r
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/react-restcountries-app.git
+   git clone https://github.com/AIgonen/react-restcountries-app.git
    cd react-restcountries-app
    ```
 2. Install dependencies:
