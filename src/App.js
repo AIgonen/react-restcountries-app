@@ -1,25 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { Routes, Route, Link } from 'react-router-dom';
+import { Layout, Typography } from 'antd';
+import SearchBar from './components/SearchBar';
+import CountryList from './components/CountryList';
+import CountryDetail from './components/CountryDetail';
 
-function App() {
+const { Header, Content } = Layout;
+const { Title } = Typography;
+
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Layout>
+      <Header style={{ background: '#fff', textAlign: 'center' }}>
+        <Link to="/">
+          <Title level={2}>Explore countries</Title>
+        </Link>
+      </Header>
+      <Content style={{ padding: '1rem 5%' }}>
+        <Routes>
+          <Route
+            path="/"
+            element={
+              <>
+                <SearchBar />
+                <CountryList />
+              </>
+            }
+          />
+          <Route path="/country/:code" element={<CountryDetail />} />
+        </Routes>
+      </Content>
+    </Layout>
   );
 }
-
-export default App;
